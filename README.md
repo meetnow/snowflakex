@@ -83,7 +83,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
 ## Usage
 
-The library only offers one simple call:
+The library only offers two simple calls:
 
 ```elixir
 Snowflakex.new()
@@ -91,3 +91,10 @@ Snowflakex.new()
 
 This call either returns `{:ok, snowflake}` or `{:error, errormessage}` where
 the latter only occurs when the system clock moved backwards.
+
+```elixir
+Snowflakex.new!()
+```
+
+This call will either return the snowflake directly or raise a Snowflakex.ClockError
+with the error message and remaining time.
