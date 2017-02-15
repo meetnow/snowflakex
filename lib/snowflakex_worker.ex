@@ -3,6 +3,14 @@
 # Copyright (c) 2016 MeetNow! GmbH
 
 defmodule Snowflakex.Worker do
+  @moduledoc """
+  Worker module for Snowflakex.
+
+  Implements a GenServer.
+
+  Do not use this directly, call `Snowflakex.new/1` or `Snowflakex.new!/1`
+  instead.
+  """
   use GenServer
   require Logger
 
@@ -39,7 +47,7 @@ defmodule Snowflakex.Worker do
     :erlang.system_time(:millisecond) - @snx_epoch
   end
 
-  def busy_wait_timechange(last_ts) do
+  defp busy_wait_timechange(last_ts) do
     case get_ts() do
       ^last_ts -> busy_wait_timechange(last_ts)
       ts -> ts

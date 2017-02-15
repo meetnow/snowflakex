@@ -12,12 +12,22 @@ defmodule Snowflakex.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     package: package()]
+     package: package(),
+     deps: deps(),
+
+     name: "Snowflakex",
+     source_url: "https://github.com/meetnow/snowflakex",
+     homepage_url: "https://github.com/meetnow/snowflakex",
+     docs: [main: "readme", extras: ["README.md"]]]
   end
 
   def application do
     [applications: [:logger],
      mod: {Snowflakex, []}]
+  end
+
+  defp deps do
+    [{:ex_doc, ">= 0.0.0", only: :dev}]
   end
 
   defp package do

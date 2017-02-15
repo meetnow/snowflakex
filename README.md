@@ -57,13 +57,13 @@ for tips on how to do this.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+The package can be installed as:
 
   1. Add `snowflakex` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:snowflakex, "~> 1.0.0-beta"}]
+      [{:snowflakex, "~> 1.1.0"}]
     end
     ```
 
