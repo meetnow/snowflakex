@@ -12,6 +12,16 @@ defmodule Snowflakex do
   end
 
   def new() do
-    GenServer.call(Snowflakex.Worker, :new)
+    case GenServer.call(Snowflakex.Worker, :new) do
+      %Snowflakex.ClockError{message: message} -> {:error, message}
+      snowflake -> {:ok, snowflake}
+    end
+  end
+
+  def new!() do
+    case GenServer.call(Snowflakex.Worker, :new) do
+      %Snowflakex.ClockError{} = error -> raise error
+      snowflake -> snowflake
+    end
   end
 end
