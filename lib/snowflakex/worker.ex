@@ -8,7 +8,7 @@ defmodule Snowflakex.Worker do
 
   Implements a GenServer.
 
-  Do not use this directly, call `Snowflakex.new/1` or `Snowflakex.new!/1`
+  Do not use this directly, call `Snowflakex.new/0` or `Snowflakex.new!/0`
   instead.
   """
   use GenServer
