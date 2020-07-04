@@ -59,27 +59,19 @@ for tips on how to do this.
 
 The package can be installed as:
 
-  1. Add `snowflakex` to your list of dependencies in `mix.exs`:
+1. Add `snowflakex` to your list of dependencies in `mix.exs`:
 
-    ```elixir
-    def deps do
-      [{:snowflakex, "~> 1.1.0"}]
-    end
-    ```
+  ```elixir
+  def deps do
+    [{:snowflakex, "~> 1.1.1"}]
+  end
+  ```
 
-  2. Ensure `snowflakex` is started before your application:
+2. Configure the machine id through your `config.exs`:
 
-    ```elixir
-    def application do
-      [applications: [:snowflakex]]
-    end
-    ```
-
-  3. Configure the machine id through your `config.exs`:
-
-    ```elixir
-    config :snowflakex, machine_id: 123
-    ```
+  ```elixir
+  config :snowflakex, machine_id: 123
+  ```
 
 ## Usage
 

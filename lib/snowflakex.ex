@@ -1,20 +1,19 @@
 
 # Created by Patrick Schneider on 05.12.2016.
-# Copyright (c) 2016 MeetNow! GmbH
+# Copyright (c) 2016,2020 MeetNow! GmbH
 
 defmodule Snowflakex do
   @moduledoc """
   Main module of Snowflakex.
   """
   use Application
-  import Supervisor.Spec
 
   @doc """
   Callback implementation for `Application.start/2`.
   """
   def start(_type, _args) do
     machine_id = Application.get_env(:snowflakex, :machine_id)
-    Supervisor.start_link([ worker(Snowflakex.Worker, [machine_id]) ], strategy: :one_for_one)
+    Supervisor.start_link([{Snowflakex.Worker, [machine_id]}], strategy: :one_for_one)
   end
 
   @doc """
